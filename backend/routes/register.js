@@ -19,7 +19,7 @@ router.post('/register' , async(req ,res)=>{
 
        const securePassword = await PasswordHashing(password);
 
-       const newUser = await user({Name : name , email : email , password : securePassword});
+       const newUser = await user({name : name , email : email , password : securePassword});
        const result = await newUser.save();
 
        return res.status(200).json({"message" : "user registered successfully" , "success" : true})

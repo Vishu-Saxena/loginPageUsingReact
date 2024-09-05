@@ -8,13 +8,12 @@ import UserDetails from './Context/DetailsApi';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <BrowserRouter>
     <UserDetails>
     <App />
     </UserDetails>
     </BrowserRouter>
-  </React.StrictMode>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import { useUserContext } from './Context/DetailsApi';
 const Login = () => {
 
     const [userDetails , setUser] = useState({email : "" , password : "" } )
+    const {setAuthenticate} = useUserContext();
 
     const navigate = useNavigate();
     // fucntion to handle onchange 
@@ -18,6 +20,8 @@ const Login = () => {
         e.preventDefault();
         const res = await axios.post("http://localhost:5000/api/auth/login" , userDetails);
         if(res?.data?.success){
+            localStorage.setItem("Token" , res.data.Token);
+            setAuthenticate(true);
             alert(res.data.message);
            navigate('/');
         }else{
@@ -35,12 +39,12 @@ const Login = () => {
       <form>
             <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                <input onChange={handleOnChange} type="email" name='email' className="form-control" id="exampleInputEmail1"/>
+                <input  autocomplete="off" onChange={handleOnChange} type="email" name='email' className="form-control" id="exampleInputEmail1"/>
             </div>
 
             <div className="mb-3">
                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                <input onChange={handleOnChange} type="password" name='password' className="form-control" id="exampleInputPassword1"/>
+                <input  autocomplete="off" onChange={handleOnChange} type="password" name='password' className="form-control" id="exampleInputPassword1"/>
             </div>
             <button type="submit" onClick={handleOnclick} className="btn btn-primary">Submit</button>
         </form>

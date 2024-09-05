@@ -34,17 +34,17 @@ const Registration = () => {
       <form>
             <div className="mb-3">
                 <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                <input onChange={handleOnChange} type="email" name='email' className="form-control" id="exampleInputEmail1"/>
+                <input  autocomplete="off" onChange={handleOnChange} type="email" name='email' className="form-control" id="exampleInputEmail1"/>
             </div>
 
             <div className="mb-3">
                 <label htmlFor="exampleInputName" className="form-label">Name</label>
-                <input onChange={handleOnChange} type="text" name='name' className="form-control" id="exampleInputName"/>
+                <input  autocomplete="off" onChange={handleOnChange} type="text" name='name' className="form-control" id="exampleInputName"/>
             </div>
 
             <div className="mb-3">
                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                <input onChange={handleOnChange} type="password" name='password' className="form-control" id="exampleInputPassword1"/>
+                <input  autocomplete="off" onChange={handleOnChange} type="password" name='password' className="form-control" id="exampleInputPassword1"/>
             </div>
             <button type="submit" onClick={handleOnclick} className="btn btn-primary">Submit</button>
         </form>
